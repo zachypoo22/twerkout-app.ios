@@ -14,7 +14,7 @@ struct RestTimer: View {
 
     var body: some View {
         if restTimerComplete {
-            Text("\(timeRemaining) Timer Done")
+            Text("Timer Done")
         } else {
             VStack {
                 Text("Rest \(self.timeRemaining)s").font(.title).onAppear(perform: {

@@ -26,6 +26,7 @@ struct ActiveWorkoutView: View {
                         RestTimer(duration: restDuration, restTimerComplete: $restTimerComplete)
                         Button(action: {
                             self.isRestTime = false
+                            self.restTimerComplete = false // I think
                             self.index += 1
                         }) {
                             if self.restTimerComplete {

@@ -10,7 +10,7 @@ import SwiftUI
 struct StartWorkoutView: View {
     
     var workout: Workout
-    @State var selectedDuration = "6"
+    @State var selectedDuration = "15"
     
     var body: some View {
         NavigationView {
