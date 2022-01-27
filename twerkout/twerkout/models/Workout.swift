@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Workout {
+struct Workout: Hashable, Codable, Identifiable {
+    var id: Int
     var name: String
     var excersizes: [Excersize]
 }

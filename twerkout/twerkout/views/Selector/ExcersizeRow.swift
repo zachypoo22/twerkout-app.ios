@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct ExcersizeRow: View {
-    var exersize: Excersize
+    var workout: Workout
     var body: some View {
         HStack {
-            Text(exersize.name)
-            Text(String(exersize.durationSeconds) + "s")
+            Text(workout.name)
         }
     }
 }
 
 struct ExcersizeRow_Previews: PreviewProvider {
     static var previews: some View {
-        ExcersizeRow(exersize: Excersize(id: 1, durationSeconds: 45, name: "Demo"))
+        ExcersizeRow(workout: Workout(id: 1, name: "Test1", excersizes: []))
     }
 }

@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct WorkoutSelectorView: View {
-    var workout: Workout
+    var workouts: [Workout]
     var body: some View {
-        VStack {
-            Text(workout.name)
-            ForEach(workout.excersizes)  {excersize in ExcersizeRow(exersize: excersize)
+        NavigationView {
+            List {
+                ForEach(workouts) { workout in
+                    NavigationLink {
+                        WorkoutView(workout: workout, isRestTime: false, index: 0)
+                    } label: {
+                        ExcersizeRow(workout: workout)
+                    }
+                    
+                }
             }
+            .navigationTitle("Workouts")
         }
     }
 }
@@ -24,7 +32,7 @@ struct WorkoutView_Previews: PreviewProvider {
             Excersize(id: 1, durationSeconds: 30, name: "Demo Excersize 1"),
             Excersize(id: 2, durationSeconds: 45, name: "Demo Excersize 2"),
         ]
-        let testWorkout = Workout(name: "Demo Workout", excersizes: testExcersizes)
-        WorkoutSelectorView(workout: testWorkout)
+        let testWorkouts = [Workout(id: 1, name: "Demo Workout", excersizes: testExcersizes), Workout(id: 2, name: "Demo Workout 2", excersizes: testExcersizes), ]
+        WorkoutSelectorView(workouts: testWorkouts)
     }
 }
