@@ -21,7 +21,7 @@ struct WorkoutSelectorView: View {
                     
                 }
             }
-            .navigationTitle("Workouts")
+            .navigationTitle("Select Workout")
         }
     }
 }
