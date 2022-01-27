@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WorkoutView: View {
+struct WorkoutSelectorView: View {
     var workout: Workout
     var body: some View {
         VStack {
@@ -25,6 +25,6 @@ struct WorkoutView_Previews: PreviewProvider {
             Excersize(id: 2, durationSeconds: 45, name: "Demo Excersize 2"),
         ]
         let testWorkout = Workout(name: "Demo Workout", excersizes: testExcersizes)
-        WorkoutView(workout: testWorkout)
+        WorkoutSelectorView(workout: testWorkout)
     }
 }

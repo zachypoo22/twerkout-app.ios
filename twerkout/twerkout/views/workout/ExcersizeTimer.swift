@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct ExcersizeTimer: View {
-    var excersize: Excersize
+    var duration: Int
     @State var timeRemaining = 0
-    @State var completed = false
+    @Binding var restTimerComplete: Bool
 
     var body: some View {
-        if completed {
-            Text("Completed \(self.excersize.name)")
+        if restTimerComplete {
+            Text("Timer Done")
         } else {
             VStack {
-                Text(self.excersize.name)
-                Text("Timer \(self.timeRemaining)").onAppear(perform: {
+                Text("Rest \(self.timeRemaining)s").font(.title).onAppear(perform: {
                     startTimer()
                 })
             }
@@ -26,12 +25,12 @@ struct ExcersizeTimer: View {
     }
 
     func startTimer() {
-        self.timeRemaining += self.excersize.durationSeconds
+        self.timeRemaining += self.duration
         _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ tempTimer in
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
             } else {
-                self.completed = true
+                self.restTimerComplete = true
                 tempTimer.invalidate()
             }
             
@@ -42,6 +41,6 @@ struct ExcersizeTimer: View {
 
 struct ExcersizeTimer_Previews: PreviewProvider {
     static var previews: some View {
-        ExcersizeTimer(excersize: Excersize(id: 1, durationSeconds: 15, name: "Demo 1"))
+        ExcersizeTimer(duration: 15, restTimerComplete: .constant(false))
     }
 }
