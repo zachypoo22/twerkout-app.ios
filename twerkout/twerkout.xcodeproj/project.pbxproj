@@ -15,6 +15,7 @@
 		C077562027A2368B00D162C0 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077561F27A2368B00D162C0 /* Workout.swift */; };
 		C077562227A236D100D162C0 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077562127A236D000D162C0 /* WorkoutView.swift */; };
 		C077562427A237BD00D162C0 /* ExcersizeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077562327A237BD00D162C0 /* ExcersizeRow.swift */; };
+		C077562627A23CA300D162C0 /* ExcersizeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077562527A23CA300D162C0 /* ExcersizeTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		C077561F27A2368B00D162C0 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		C077562127A236D000D162C0 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		C077562327A237BD00D162C0 /* ExcersizeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcersizeRow.swift; sourceTree = "<group>"; };
+		C077562527A23CA300D162C0 /* ExcersizeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcersizeTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		C077560C27A230F600D162C0 /* twerkout */ = {
 			isa = PBXGroup;
 			children = (
+				C077562727A2428D00D162C0 /* controllers */,
 				C077561C27A235EF00D162C0 /* models */,
 				C077561B27A235D900D162C0 /* views */,
 				C077560D27A230F600D162C0 /* twerkoutApp.swift */,
@@ -82,6 +85,7 @@
 				C077560F27A230F600D162C0 /* ContentView.swift */,
 				C077562127A236D000D162C0 /* WorkoutView.swift */,
 				C077562327A237BD00D162C0 /* ExcersizeRow.swift */,
+				C077562527A23CA300D162C0 /* ExcersizeTimer.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -93,6 +97,13 @@
 				C077561F27A2368B00D162C0 /* Workout.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		C077562727A2428D00D162C0 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C077562627A23CA300D162C0 /* ExcersizeTimer.swift in Sources */,
 				C077561E27A2364300D162C0 /* Excersize.swift in Sources */,
 				C077561027A230F600D162C0 /* ContentView.swift in Sources */,
 				C077560E27A230F600D162C0 /* twerkoutApp.swift in Sources */,
