@@ -9,6 +9,5 @@ import Foundation
 
 struct Excersize: Hashable, Codable, Identifiable {
     var id: Int
-    var durationSeconds: Int
     var name: String
 }
