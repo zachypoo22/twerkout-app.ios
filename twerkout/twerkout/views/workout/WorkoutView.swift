@@ -22,7 +22,7 @@ struct WorkoutView: View {
             Spacer()
             if isRestTime {
                 VStack {
-                    ExcersizeTimer(duration: restDuration, restTimerComplete: $restTimerComplete)
+                    RestTimer(duration: restDuration, restTimerComplete: $restTimerComplete)
                     Button(action: {
                         self.isRestTime = false
                         self.index += 1

@@ -17,7 +17,7 @@
 		C077562027A2368B00D162C0 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077561F27A2368B00D162C0 /* Workout.swift */; };
 		C077562227A236D100D162C0 /* WorkoutSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077562127A236D000D162C0 /* WorkoutSelectorView.swift */; };
 		C077562427A237BD00D162C0 /* ExcersizeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077562327A237BD00D162C0 /* ExcersizeRow.swift */; };
-		C077562627A23CA300D162C0 /* ExcersizeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077562527A23CA300D162C0 /* ExcersizeTimer.swift */; };
+		C077562627A23CA300D162C0 /* RestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077562527A23CA300D162C0 /* RestTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		C077561F27A2368B00D162C0 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		C077562127A236D000D162C0 /* WorkoutSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelectorView.swift; sourceTree = "<group>"; };
 		C077562327A237BD00D162C0 /* ExcersizeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcersizeRow.swift; sourceTree = "<group>"; };
-		C077562527A23CA300D162C0 /* ExcersizeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcersizeTimer.swift; sourceTree = "<group>"; };
+		C077562527A23CA300D162C0 /* RestTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 		C060127D27A2623700029632 /* workout */ = {
 			isa = PBXGroup;
 			children = (
-				C077562527A23CA300D162C0 /* ExcersizeTimer.swift */,
+				C077562527A23CA300D162C0 /* RestTimer.swift */,
 				C060127A27A25BC500029632 /* ExcersizeRepView.swift */,
 				C060127E27A2625800029632 /* WorkoutView.swift */,
 			);
@@ -198,7 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C077562627A23CA300D162C0 /* ExcersizeTimer.swift in Sources */,
+				C077562627A23CA300D162C0 /* RestTimer.swift in Sources */,
 				C077561E27A2364300D162C0 /* Excersize.swift in Sources */,
 				C077561027A230F600D162C0 /* ContentView.swift in Sources */,
 				C077560E27A230F600D162C0 /* twerkoutApp.swift in Sources */,

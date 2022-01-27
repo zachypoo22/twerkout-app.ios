@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExcersizeTimer: View {
+struct RestTimer: View {
     var duration: Int
     @State var timeRemaining = 0
     @Binding var restTimerComplete: Bool
@@ -41,6 +41,6 @@ struct ExcersizeTimer: View {
 
 struct ExcersizeTimer_Previews: PreviewProvider {
     static var previews: some View {
-        ExcersizeTimer(duration: 15, restTimerComplete: .constant(false))
+        RestTimer(duration: 15, restTimerComplete: .constant(false))
     }
 }
