@@ -20,8 +20,14 @@ struct RestTimer: View {
                 Text("Rest \(self.timeRemaining)s").font(.title).onAppear(perform: {
                     startTimer()
                 })
+                    .background(Circle().scale(CGFloat(getRadius(currentTime: timeRemaining))).stroke().shadow(radius: 16))
             }
         }
+    }
+    
+    func getRadius(currentTime: Int) -> Int {
+        let m = 10 / duration
+        return m + currentTime
     }
 
     func startTimer() {
