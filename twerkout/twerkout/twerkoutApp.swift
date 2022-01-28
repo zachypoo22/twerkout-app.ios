@@ -13,10 +13,14 @@ struct twerkoutApp: App {
     @StateObject private var store = WorkoutStore()
     
     let demoWorkouts = [Workout(id: 1, name: "Easy One", excersizes: [Excersize(id: 1, name: "Push"), Excersize(id: 2, name: "Pull"), Excersize(id: 3, name: "Spin")]), Workout(id: 2, name: "Hard One", excersizes: [Excersize(id: 1, name: "Push"), Excersize(id: 2, name: "Pull"), Excersize(id: 3, name: "Spin")])]
-    
+
     var body: some Scene {
         WindowGroup {
-            ContentView(workouts: $store.workouts)
+            ContentView(workouts: [])
+//            ContentView(workouts: $store.workouts)
+            
+            
+            
 //            {
 //                WorkoutStore.save(workouts: store.workouts) {result in
 //                    if case .failure(let error) = result {
