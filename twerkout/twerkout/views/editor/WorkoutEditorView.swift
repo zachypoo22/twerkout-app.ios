@@ -10,7 +10,6 @@ import SwiftUI
 struct WorkoutEditorView: View {
     
     @Environment(\.scenePhase) private var scenePhase
-    @State var test = 0
     @Binding var workout: Workout
     let saveAction: ()->Void
     
@@ -34,7 +33,6 @@ struct WorkoutEditorView: View {
     }
     
     func addBlankExcersize() {
-        test += 1
         workout.excersizes.append(Excersize(id: workout.excersizes.count, name: "Blank"))
     }
 }
