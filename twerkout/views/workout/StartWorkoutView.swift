@@ -17,6 +17,8 @@ struct StartWorkoutView: View {
             VStack {
                 Form {
                     Text(workout.name)
+                        .colorInvert()
+                        .foregroundColor(.cyan)
                     TextField("Duration", text: $selectedDuration)
                         .padding()
                         .keyboardType(.numberPad)
@@ -24,6 +26,8 @@ struct StartWorkoutView: View {
                 
                 NavigationLink(destination: ActiveWorkoutView(workout: workout, restDuration: Int(selectedDuration) ?? 30, index: 0, isRestTime: false)) {
                     Text("START")
+                        .colorInvert()
+                        .foregroundColor(.cyan)
                 }
             }
         }

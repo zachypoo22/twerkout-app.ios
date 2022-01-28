@@ -20,6 +20,8 @@ struct ActiveWorkoutView: View {
             VStack {
                 Text(workout.name)
                     .font(.largeTitle)
+                    .colorInvert()
+                    .foregroundColor(.cyan)
                 Spacer()
                 if isRestTime {
                     VStack {
@@ -41,12 +43,16 @@ struct ActiveWorkoutView: View {
                         Text("Do: \(self.workout.excersizes[index].name)")
                             .font(.title)
                             .padding()
+                            .colorInvert()
+                            .foregroundColor(.cyan)
                         if self.index < self.workout.excersizes.count-1 {
                             Button(action: {
                                 self.isRestTime = true
                             }) {
                                 Text("Next: Rest for \(self.restDuration)s")
                                     .font(.callout)
+                                    .colorInvert()
+                                    .foregroundColor(.cyan)
                             }
                         }
                     }

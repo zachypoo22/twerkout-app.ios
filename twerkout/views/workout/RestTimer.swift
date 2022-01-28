@@ -17,17 +17,25 @@ struct RestTimer: View {
             Text("Timer Done")
         } else {
             VStack {
-                Text("Rest \(self.timeRemaining)s").font(.title).onAppear(perform: {
+                Text("Rest \(timeRemaining)s").font(.title).onAppear(perform: {
                     startTimer()
                 })
-                    .background(Circle().scale(CGFloat(getRadius(currentTime: timeRemaining))).stroke().shadow(radius: 16))
+                    .background(
+                        Circle()
+                            .scale(7)
+                            .stroke()
+                            .shadow(radius: 16)
+                            .background(
+                                Circle()
+                                    .scale(8)
+                                    .trim(from:CGFloat(Double(timeRemaining) / Double(duration)), to: 1)
+                                    .stroke(lineWidth: 8)
+                                    .colorInvert()
+                                    .foregroundColor(Color.cyan)
+                            )
+                    )
             }
         }
-    }
-    
-    func getRadius(currentTime: Int) -> Int {
-        let m = 10 / duration
-        return m + currentTime
     }
 
     func startTimer() {

@@ -14,16 +14,16 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Workouts").font(.largeTitle).foregroundColor(.cyan).colorInvert()
-                
-            MainEditorView(workouts: $store.workouts) {
-                WorkoutStore.save(workouts: store.workouts) { result in
-                    if case .failure(let error) = result {
-                        fatalError(error.localizedDescription)
-                    }
-                }
-            }
-//            WorkoutSelectorView(workouts: workouts)
+//            Text("Workouts").font(.largeTitle).foregroundColor(.cyan).colorInvert()
+//
+//            MainEditorView(workouts: $store.workouts) {
+//                WorkoutStore.save(workouts: store.workouts) { result in
+//                    if case .failure(let error) = result {
+//                        fatalError(error.localizedDescription)
+//                    }
+//                }
+//            }
+            WorkoutSelectorView(workouts: workouts)
         }.colorInvert().background(Color.black)
     }
 }
