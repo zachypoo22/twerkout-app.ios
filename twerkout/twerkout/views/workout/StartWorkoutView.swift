@@ -10,15 +10,18 @@ import SwiftUI
 struct StartWorkoutView: View {
     
     var workout: Workout
-    @State var selectedDuration = "15"
+    @State var selectedDuration = ""
     
     var body: some View {
         NavigationView {
             VStack {
-                Text(workout.name)
-                TextField("Duration", text: $selectedDuration)
-                    .padding()
-                    .keyboardType(.numberPad)
+                Form {
+                    Text(workout.name)
+                    TextField("Duration", text: $selectedDuration)
+                        .padding()
+                        .keyboardType(.numberPad)
+                }
+                
                 NavigationLink(destination: ActiveWorkoutView(workout: workout, restDuration: Int(selectedDuration) ?? 30, index: 0, isRestTime: false)) {
                     Text("START")
                 }
