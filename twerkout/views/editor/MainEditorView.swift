@@ -31,7 +31,7 @@ struct MainEditorView: View {
             Button(action: {
                 workouts.append(Workout(id: workouts.count, name: "Blank", excersizes: []))
             }) {
-                Text("Add New Workout")
+                Text("Add New Workout").colorInvert().foregroundColor(Color.cyan)
             }
         }
     }

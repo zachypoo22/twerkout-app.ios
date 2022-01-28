@@ -13,6 +13,7 @@ struct WorkoutEditorRow: View {
     
     var body: some View {
         Text(workout.name)
+            .colorInvert().foregroundColor(Color.cyan)
     }
 }
 

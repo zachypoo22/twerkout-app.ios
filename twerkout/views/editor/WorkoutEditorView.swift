@@ -17,6 +17,7 @@ struct WorkoutEditorView: View {
         VStack {
             Form {
                 TextField("Name", text: $workout.name)
+                    .colorInvert().foregroundColor(Color.cyan)
                 ForEach($workout.excersizes) {excersize in
                     ExcersizeEditorView(excersize: excersize)
                 }
@@ -28,6 +29,7 @@ struct WorkoutEditorView: View {
                 addBlankExcersize()
             }) {
                 Text("Add New Exersize")
+                    .colorInvert().foregroundColor(Color.cyan)
             }
         }
     }
