@@ -30,6 +30,7 @@ struct RestTimer: View {
                                     .scale(8)
                                     .trim(from:CGFloat(Double(timeRemaining) / Double(duration)), to: 1)
                                     .stroke(lineWidth: 8)
+                                    .foregroundColor(Color.pink)
                             )
                     )
             }

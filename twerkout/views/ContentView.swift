@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-//    @State var workouts: [Workout]
     @State var isEditMode = false
     @StateObject private var store = WorkoutStore()
     
@@ -17,7 +16,7 @@ struct ContentView: View {
         VStack {
             if isEditMode {
                 VStack {
-                    Text("Workouts").font(.largeTitle).foregroundColor(Color.pink)
+                    Text("Workouts").font(.largeTitle)
                     HStack {
                         Spacer()
                         Button(action: {

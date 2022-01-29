@@ -15,7 +15,7 @@ struct WorkoutSelectorView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Workouts").font(.largeTitle).foregroundColor(Color.pink)
+                Text("Workouts").font(.largeTitle)
                 HStack {
                     Spacer()
                     Button(action: {
@@ -35,9 +35,9 @@ struct WorkoutSelectorView: View {
                         
                     }
                 }
-            }
+            }.navigationBarTitle("", displayMode: .inline).navigationBarHidden(true)
         
-        }.navigationBarHidden(true).navigationBarTitle("")
+        }
     }
 }
 
