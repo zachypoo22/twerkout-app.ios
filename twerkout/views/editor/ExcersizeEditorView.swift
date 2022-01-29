@@ -16,7 +16,6 @@ struct ExcersizeEditorView: View {
             Text("Name").font(.headline)
             Spacer()
             TextField("Name", text: $excersize.name)
-                .colorInvert().foregroundColor(Color.cyan)
         }
     }
 }

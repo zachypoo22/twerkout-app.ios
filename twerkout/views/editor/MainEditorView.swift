@@ -10,7 +10,6 @@ import SwiftUI
 struct MainEditorView: View {
     
     @Binding var workouts: [Workout]
-    let saveAction: ()->Void
     
     var body: some View {
         VStack {
@@ -19,9 +18,7 @@ struct MainEditorView: View {
                     List {
                         ForEach($workouts) { workout in
                             NavigationLink {
-                                WorkoutEditorView(workout: workout) {
-                                    saveAction()
-                                }
+                                WorkoutEditorView(workout: workout)
                             } label: {
                                 WorkoutEditorRow(workout: workout)
                             }
@@ -31,7 +28,7 @@ struct MainEditorView: View {
                     Button(action: {
                         workouts.append(Workout(id: workouts.count, name: "Blank", excersizes: []))
                     }) {
-                        Text("Add New Workout").colorInvert().foregroundColor(Color.cyan)
+                        Text("Add New Workout").foregroundColor(Color.blue)
                     }
                 }
             }
@@ -44,6 +41,6 @@ struct MainEditorView_Previews: PreviewProvider {
     static var previews: some View {
         let demoExcersizesOne = [Excersize(id: 1, name: "Push"), Excersize(id: 2, name: "Pull"), Excersize(id: 3, name: "Spin")]
         let demoWorkouts = [Workout(id: 1, name: "Easy One", excersizes: demoExcersizesOne), Workout(id: 2, name: "Hard One", excersizes: demoExcersizesOne)]
-        MainEditorView(workouts: .constant(demoWorkouts), saveAction: {})
+        MainEditorView(workouts: .constant(demoWorkouts))
     }
 }

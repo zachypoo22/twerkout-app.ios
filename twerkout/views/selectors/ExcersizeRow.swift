@@ -12,8 +12,6 @@ struct ExcersizeRow: View {
     var body: some View {
         HStack {
             Text(workout.name)
-                .colorInvert()
-                .foregroundColor(Color.cyan)
         }
     }
 }

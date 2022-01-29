@@ -15,30 +15,27 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Workouts").font(.largeTitle).foregroundColor(.cyan).colorInvert()
-            
             if isEditMode {
                 VStack {
+                    Text("Workouts").font(.largeTitle).foregroundColor(Color.pink)
                     HStack {
                         Spacer()
                         Button(action: {
                             isEditMode = false
+                            WorkoutStore.save(workouts: store.workouts) { result in
+                                if case .failure(let error) = result {
+                                    fatalError(error.localizedDescription)
+                                }
+                            }
                         }) {
-                            Text("Save")
+                            Text("Save").foregroundColor(Color.blue)
                         }
                     }
                     Spacer()
-                    MainEditorView(workouts: $store.workouts) {
-                        WorkoutStore.save(workouts: store.workouts) { result in
-                            if case .failure(let error) = result {
-                                fatalError(error.localizedDescription)
-                            }
-                        }
-                    }
+                    MainEditorView(workouts: $store.workouts)
                 }
             } else {
                 WorkoutSelectorView(isEditMode: $isEditMode, workouts: store.workouts)
-                
             }
         }
         .onAppear {
@@ -50,7 +47,7 @@ struct ContentView: View {
                     store.workouts = workouts
                 }
             }
-        }.colorInvert().background(Color.black)
+        }
     }
 }
 
