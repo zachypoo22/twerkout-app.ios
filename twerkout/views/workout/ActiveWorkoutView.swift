@@ -12,7 +12,7 @@ struct ActiveWorkoutView: View {
     var workout: Workout
     var restDuration: Int
     @State var index: Int
-    @State var setCount = 0
+    @State var setCount = 1
     @State var isRestTime: Bool
     @State var restTimerComplete = false
     
@@ -28,27 +28,25 @@ struct ActiveWorkoutView: View {
                         Button(action: {
                             isRestTime = false
                             restTimerComplete = false
-//                            self.index += 1
                             if setCount >= workout.excersizes[index].sets {
                                 index += 1
-                                setCount = 0
+                                setCount = 1
                             } else {
                                 setCount += 1
                             }
                         }) {
                             if restTimerComplete {
-                                Text("Next: \(self.workout.excersizes[index+1].name)")
-                                    .font(.callout)
+                                Text("Continue")
                             }
                         }
                     }
                     Spacer()
                 } else {
                     VStack {
-                        Text("\(workout.excersizes[index].name) (\(workout.excersizes[index].sets - setCount))")
+                        Text("\(workout.excersizes[index].name) (\(setCount) / \(workout.excersizes[index].sets))")
                             .font(.title)
                             .padding()
-                        if index < workout.excersizes.count-1 {
+                        if index < workout.excersizes.count-1 || setCount < workout.excersizes[index].sets {
                             Button(action: {
                                 isRestTime = true
                             }) {
@@ -70,7 +68,7 @@ struct ActiveWorkoutView_Previews: PreviewProvider {
         ActiveWorkoutView(workout: Workout(id: 1, name: "Workout 1", excersizes: [
             Excersize(id: 1, name: "Demo 1", sets: 2),
             Excersize(id: 2, name: "Demo 2", sets: 1),
-            Excersize(id: 2, name: "Demo 3", sets: 3),
+//            Excersize(id: 3, name: "Demo 3", sets: 3),
         ]), restDuration: 6, index: 0, isRestTime: false)
     }
 }
