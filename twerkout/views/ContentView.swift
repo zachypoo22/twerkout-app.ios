@@ -37,17 +37,17 @@ struct ContentView: View {
                     }
                 }
             } else {
-                VStack {
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            isEditMode = true
-                        }) {
-                            Text("Edit")
-                        }
-                    }
-                    Spacer()
-                    WorkoutSelectorView(workouts: store.workouts)
+                WorkoutSelectorView(isEditMode: $isEditMode, workouts: store.workouts)
+                
+            }
+        }
+        .onAppear {
+            WorkoutStore.load { result in
+                switch result {
+                case .failure(let error):
+                    fatalError(error.localizedDescription)
+                case .success(let workouts):
+                    store.workouts = workouts
                 }
             }
         }.colorInvert().background(Color.black)

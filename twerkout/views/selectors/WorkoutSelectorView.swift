@@ -8,20 +8,34 @@
 import SwiftUI
 
 struct WorkoutSelectorView: View {
+    
+    @Binding var isEditMode: Bool
     var workouts: [Workout]
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(workouts) { workout in
-                    NavigationLink {
-                       StartWorkoutView(workout: workout)
-                    } label: {
-                        ExcersizeRow(workout: workout)
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isEditMode = true
+                    }) {
+                        Text("Edit")
                     }
-                    
+                }
+                Spacer()
+                List {
+                    ForEach(workouts) { workout in
+                        NavigationLink {
+                           StartWorkoutView(workout: workout)
+                        } label: {
+                            ExcersizeRow(workout: workout)
+                        }
+                        
+                    }
                 }
             }
-//            .navigationTitle("Select Workout")
+            
         }
     }
 }
@@ -33,6 +47,6 @@ struct WorkoutView_Previews: PreviewProvider {
             Excersize(id: 2, name: "Demo Excersize 2"),
         ]
         let testWorkouts = [Workout(id: 1, name: "Demo Workout", excersizes: testExcersizes), Workout(id: 2, name: "Demo Workout 2", excersizes: testExcersizes), ]
-        WorkoutSelectorView(workouts: testWorkouts)
+        WorkoutSelectorView(isEditMode: .constant(false), workouts: testWorkouts)
     }
 }
