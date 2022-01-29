@@ -25,7 +25,7 @@ struct StartWorkoutView: View {
                 
                 List {
                     ForEach(workout.excersizes) {excersize in
-                        Text(excersize.name)
+                        Text("\(excersize.sets)x: \(excersize.name)")
                     }
                 }
                 
@@ -40,9 +40,9 @@ struct StartWorkoutView: View {
 struct StartWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
         let testExcersizes = [
-            Excersize(id: 1, name: "Demo Excersize 1"),
-            Excersize(id: 2, name: "Demo Excersize 2"),
-            Excersize(id: 3, name: "Demo Excersize 3"),
+            Excersize(id: 1, name: "Demo Excersize 1", sets: 2),
+            Excersize(id: 2, name: "Demo Excersize 2", sets: 1),
+            Excersize(id: 3, name: "Demo Excersize 3", sets: 3),
         ]
         let testWorkout = Workout(id: 1, name: "Demo Workout", excersizes: testExcersizes)
         StartWorkoutView(workout: testWorkout)

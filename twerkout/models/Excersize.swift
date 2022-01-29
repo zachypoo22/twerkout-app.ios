@@ -10,4 +10,5 @@ import Foundation
 struct Excersize: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
+    var sets: Int
 }

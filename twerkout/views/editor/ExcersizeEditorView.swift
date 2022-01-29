@@ -12,17 +12,27 @@ struct ExcersizeEditorView: View {
     @Binding var excersize: Excersize
     
     var body: some View {
-        HStack {
-            Text("Name").font(.headline)
-            Spacer()
-            TextField("Name", text: $excersize.name)
-        }
+//        Form {
+            VStack {
+                HStack {
+                    Text("Name").font(.headline)
+                    Spacer()
+                    TextField("Name", text: $excersize.name)
+                }
+                Picker("Sets", selection: $excersize.sets) {
+                    ForEach(1...10, id: \.self) {
+                        Text("\($0)")
+                    }
+                }
+            }
+//        }
+        
     }
 }
 
 struct ExcersizeEditorView_Previews: PreviewProvider {
     static var previews: some View {
-        let testExcersize = Excersize(id: 1, name: "Yolo")
+        let testExcersize = Excersize(id: 1, name: "Yolo", sets: 3)
         ExcersizeEditorView(excersize: .constant(testExcersize))
     }
 }

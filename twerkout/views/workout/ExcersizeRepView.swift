@@ -22,8 +22,8 @@ struct ExcersizeRepView: View {
 struct ExcersizeRepView_Previews: PreviewProvider {
     static var previews: some View {
         ExcersizeRepView(excersizeList: [
-            Excersize(id: 1, name: "Demo 1"),
-            Excersize(id: 2, name: "Demo 2")
+            Excersize(id: 1, name: "Demo 1", sets:1),
+            Excersize(id: 2, name: "Demo 2", sets: 2)
         ], index: 0)
     }
 }

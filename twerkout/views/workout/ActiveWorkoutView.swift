@@ -12,6 +12,7 @@ struct ActiveWorkoutView: View {
     var workout: Workout
     var restDuration: Int
     @State var index: Int
+    @State var setCount = 0
     @State var isRestTime: Bool
     @State var restTimerComplete = false
     
@@ -25,11 +26,17 @@ struct ActiveWorkoutView: View {
                     VStack {
                         RestTimer(duration: restDuration, restTimerComplete: $restTimerComplete)
                         Button(action: {
-                            self.isRestTime = false
-                            self.restTimerComplete = false
-                            self.index += 1
+                            isRestTime = false
+                            restTimerComplete = false
+//                            self.index += 1
+                            if setCount >= workout.excersizes[index].sets {
+                                index += 1
+                                setCount = 0
+                            } else {
+                                setCount += 1
+                            }
                         }) {
-                            if self.restTimerComplete {
+                            if restTimerComplete {
                                 Text("Next: \(self.workout.excersizes[index+1].name)")
                                     .font(.callout)
                             }
@@ -38,14 +45,14 @@ struct ActiveWorkoutView: View {
                     Spacer()
                 } else {
                     VStack {
-                        Text("Do: \(self.workout.excersizes[index].name)")
+                        Text("\(workout.excersizes[index].name) (\(workout.excersizes[index].sets - setCount))")
                             .font(.title)
                             .padding()
-                        if self.index < self.workout.excersizes.count-1 {
+                        if index < workout.excersizes.count-1 {
                             Button(action: {
-                                self.isRestTime = true
+                                isRestTime = true
                             }) {
-                                Text("Next: Rest for \(self.restDuration)s")
+                                Text("Next: Rest for \(restDuration)s")
                                     .font(.callout)
                             }
                         }
@@ -61,9 +68,9 @@ struct ActiveWorkoutView: View {
 struct ActiveWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
         ActiveWorkoutView(workout: Workout(id: 1, name: "Workout 1", excersizes: [
-            Excersize(id: 1, name: "Demo 1"),
-            Excersize(id: 2, name: "Demo 2"),
-            Excersize(id: 2, name: "Demo 3"),
+            Excersize(id: 1, name: "Demo 1", sets: 2),
+            Excersize(id: 2, name: "Demo 2", sets: 1),
+            Excersize(id: 2, name: "Demo 3", sets: 3),
         ]), restDuration: 6, index: 0, isRestTime: false)
     }
 }
