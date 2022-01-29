@@ -15,6 +15,7 @@
 		C060128A27A3680800029632 /* MainEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060128927A3680800029632 /* MainEditorView.swift */; };
 		C060128C27A3762500029632 /* ExcersizeEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060128B27A3762500029632 /* ExcersizeEditorView.swift */; };
 		C060128E27A37CCE00029632 /* WorkoutEditorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060128D27A37CCE00029632 /* WorkoutEditorRow.swift */; };
+		C060129227A5DC6B00029632 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060129127A5DC6A00029632 /* SoundPlayer.swift */; };
 		C077560E27A230F600D162C0 /* twerkoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077560D27A230F600D162C0 /* twerkoutApp.swift */; };
 		C077561027A230F600D162C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C077560F27A230F600D162C0 /* ContentView.swift */; };
 		C077561227A230FA00D162C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C077561127A230FA00D162C0 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		C060128927A3680800029632 /* MainEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEditorView.swift; sourceTree = "<group>"; };
 		C060128B27A3762500029632 /* ExcersizeEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcersizeEditorView.swift; sourceTree = "<group>"; };
 		C060128D27A37CCE00029632 /* WorkoutEditorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutEditorRow.swift; sourceTree = "<group>"; };
+		C060129127A5DC6A00029632 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		C077560A27A230F600D162C0 /* twerkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twerkout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C077560D27A230F600D162C0 /* twerkoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twerkoutApp.swift; sourceTree = "<group>"; };
 		C077560F27A230F600D162C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				C077561D27A2364300D162C0 /* Excersize.swift */,
 				C077561F27A2368B00D162C0 /* Workout.swift */,
 				C060128427A360A000029632 /* WorkoutStore.swift */,
+				C060129127A5DC6A00029632 /* SoundPlayer.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			files = (
 				C060128C27A3762500029632 /* ExcersizeEditorView.swift in Sources */,
 				C077562627A23CA300D162C0 /* RestTimer.swift in Sources */,
+				C060129227A5DC6B00029632 /* SoundPlayer.swift in Sources */,
 				C060128A27A3680800029632 /* MainEditorView.swift in Sources */,
 				C077561E27A2364300D162C0 /* Excersize.swift in Sources */,
 				C077561027A230F600D162C0 /* ContentView.swift in Sources */,

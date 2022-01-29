@@ -37,6 +37,9 @@ struct ActiveWorkoutView: View {
                         }) {
                             if restTimerComplete {
                                 Text("Continue")
+//                                    .onAppear(perform: {
+//                                        playSound(sound: "vividwaves", type: "wav")
+//                                    })
                             }
                         }
                     }
