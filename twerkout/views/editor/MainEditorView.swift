@@ -15,24 +15,27 @@ struct MainEditorView: View {
     var body: some View {
         VStack {
             NavigationView {
-                List {
-                    ForEach($workouts) { workout in
-                        NavigationLink {
-                            WorkoutEditorView(workout: workout) {
-                                saveAction()
+                VStack {
+                    List {
+                        ForEach($workouts) { workout in
+                            NavigationLink {
+                                WorkoutEditorView(workout: workout) {
+                                    saveAction()
+                                }
+                            } label: {
+                                WorkoutEditorRow(workout: workout)
                             }
-                        } label: {
-                            WorkoutEditorRow(workout: workout)
                         }
+                    }
+                    Spacer()
+                    Button(action: {
+                        workouts.append(Workout(id: workouts.count, name: "Blank", excersizes: []))
+                    }) {
+                        Text("Add New Workout").colorInvert().foregroundColor(Color.cyan)
                     }
                 }
             }
-            Spacer()
-            Button(action: {
-                workouts.append(Workout(id: workouts.count, name: "Blank", excersizes: []))
-            }) {
-                Text("Add New Workout").colorInvert().foregroundColor(Color.cyan)
-            }
+            
         }
     }
 }

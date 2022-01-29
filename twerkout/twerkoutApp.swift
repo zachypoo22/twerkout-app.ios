@@ -16,7 +16,7 @@ struct twerkoutApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(workouts: [])
+            ContentView()
 //            ContentView(workouts: $store.workouts)
             
             
