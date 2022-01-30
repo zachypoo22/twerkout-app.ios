@@ -18,7 +18,7 @@ struct StartWorkoutView: View {
                 Form {
                     Text(workout.name)
                         .font(.title)
-                    TextField("Duration", text: $selectedDuration)
+                    TextField("Rest Between Sets", text: $selectedDuration)
                         .padding()
                         .keyboardType(.numberPad)
                 }

@@ -11,6 +11,8 @@ struct ActiveWorkoutView: View {
     
     var workout: Workout
     var restDuration: Int
+    @State var excersizeTime = 0
+    @State var workoutComplete = false
     @State var index: Int
     @State var setCount = 1
     @State var isRestTime: Bool
@@ -21,6 +23,7 @@ struct ActiveWorkoutView: View {
             VStack {
                 Text(workout.name)
                     .font(.largeTitle)
+                Text("Workout Time \(excersizeTime)")
                 Spacer()
                 if isRestTime {
                     VStack {
@@ -37,9 +40,9 @@ struct ActiveWorkoutView: View {
                         }) {
                             if restTimerComplete {
                                 Text("Continue")
-//                                    .onAppear(perform: {
-//                                        playSound(sound: "vividwaves", type: "wav")
-//                                    })
+                                    .onAppear(perform: {
+                                        playAVSound(sound: "chrip.wav", type: "wav")
+                                    })
                             }
                         }
                     }
@@ -56,21 +59,40 @@ struct ActiveWorkoutView: View {
                                 Text("Next: Rest for \(restDuration)s")
                                     .font(.callout)
                             }
+                        } else {
+                            Button(action: {
+                                workoutComplete = true
+                            }) {
+                                Text("Complete Workout")
+                            }
                         }
                     }
                     Spacer()
                 }
-            }
+            }.onAppear(perform: {
+                startTimer()
+            })
         }.navigationBarTitle("")
         .navigationBarHidden(true)
     }
+    
+    func startTimer() {
+        _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ tempTimer in
+            if workoutComplete {
+                tempTimer.invalidate()
+            } else {
+                excersizeTime += 1
+            }
+        }
+    }
+    
 }
 
 struct ActiveWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
         ActiveWorkoutView(workout: Workout(id: 1, name: "Workout 1", excersizes: [
-            Excersize(id: 1, name: "Demo 1", sets: 2),
-            Excersize(id: 2, name: "Demo 2", sets: 1),
+            Excersize(id: 1, name: "Demo 1", sets: 1),
+//            Excersize(id: 2, name: "Demo 2", sets: 1),
 //            Excersize(id: 3, name: "Demo 3", sets: 3),
         ]), restDuration: 6, index: 0, isRestTime: false)
     }
