@@ -11,7 +11,7 @@ struct ActiveWorkoutView: View {
     
     var workout: Workout
     var restDuration: Int
-    @State var excersizeTime = 0
+    @State var workoutTime = 0
     @State var workoutComplete = false
     @State var index: Int
     @State var setCount = 1
@@ -20,58 +20,62 @@ struct ActiveWorkoutView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text(workout.name)
-                    .font(.largeTitle)
-                Text("Workout Time \(excersizeTime)")
-                Spacer()
-                if isRestTime {
-                    VStack {
-                        RestTimer(duration: restDuration, restTimerComplete: $restTimerComplete)
-                        Button(action: {
-                            isRestTime = false
-                            restTimerComplete = false
-                            if setCount >= workout.excersizes[index].sets {
-                                index += 1
-                                setCount = 1
+            if workoutComplete {
+                WorkoutSummaryView()
+            } else {
+                VStack {
+                    Text(workout.name)
+                        .font(.largeTitle)
+                    Text("Workout Time \(workoutTime / 2)s")
+                    Spacer()
+                    if isRestTime {
+                        VStack {
+                            RestTimer(duration: restDuration, restTimerComplete: $restTimerComplete)
+                            Button(action: {
+                                isRestTime = false
+                                restTimerComplete = false
+                                if setCount >= workout.excersizes[index].sets {
+                                    index += 1
+                                    setCount = 1
+                                } else {
+                                    setCount += 1
+                                }
+                            }) {
+                                if restTimerComplete {
+                                    Text("Continue")
+                                        .onAppear(perform: {
+                                            playAVSound(sound: "chrip.wav", type: "wav")
+                                        })
+                                }
+                            }
+                        }
+                        Spacer()
+                    } else {
+                        VStack {
+                            Text("\(workout.excersizes[index].name) (\(setCount) / \(workout.excersizes[index].sets))")
+                                .font(.title)
+                                .padding()
+                            if index < workout.excersizes.count-1 || setCount < workout.excersizes[index].sets {
+                                Button(action: {
+                                    isRestTime = true
+                                }) {
+                                    Text("Next: Rest for \(restDuration)s")
+                                        .font(.callout)
+                                }
                             } else {
-                                setCount += 1
-                            }
-                        }) {
-                            if restTimerComplete {
-                                Text("Continue")
-                                    .onAppear(perform: {
-                                        playAVSound(sound: "chrip.wav", type: "wav")
-                                    })
+                                Button(action: {
+                                    workoutComplete = true
+                                }) {
+                                    Text("Complete Workout")
+                                }
                             }
                         }
+                        Spacer()
                     }
-                    Spacer()
-                } else {
-                    VStack {
-                        Text("\(workout.excersizes[index].name) (\(setCount) / \(workout.excersizes[index].sets))")
-                            .font(.title)
-                            .padding()
-                        if index < workout.excersizes.count-1 || setCount < workout.excersizes[index].sets {
-                            Button(action: {
-                                isRestTime = true
-                            }) {
-                                Text("Next: Rest for \(restDuration)s")
-                                    .font(.callout)
-                            }
-                        } else {
-                            Button(action: {
-                                workoutComplete = true
-                            }) {
-                                Text("Complete Workout")
-                            }
-                        }
-                    }
-                    Spacer()
-                }
-            }.onAppear(perform: {
-                startTimer()
-            })
+                }.onAppear(perform: {
+                    startTimer()
+                })
+            }
         }.navigationBarTitle("")
         .navigationBarHidden(true)
     }
@@ -81,7 +85,7 @@ struct ActiveWorkoutView: View {
             if workoutComplete {
                 tempTimer.invalidate()
             } else {
-                excersizeTime += 1
+                workoutTime += 1
             }
         }
     }
